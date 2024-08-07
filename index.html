@@ -1,0 +1,1012 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="ml-5 mt-5">
+
+  <div class="flex">
+    <div id="menu" class="fixed top-0 left-0 w-80 h-full bg-slate-700 text-white p-4 hidden lg:block z-10">
+      <h1 class="text-2xl font-bold">NBA Player Prop Predictor</h1>
+      <p>Ashwin Mudaliar, Colin Hakes, Keegan Thompson, Terrence Onodipe</p>
+      <ul>
+        <li class="mt-2"><a href="#" class="block p-2 rounded hover:text-blue-500">Project Proposal</a></li>
+        <ul class="ml-4">
+          <li class=""><a href="#intro" class="block p-2 rounded hover:text-blue-500">Introduction & Background</a></li>
+          <li class=""><a href="#definition" class="block p-2 rounded hover:text-blue-500">Problem Definition</a></li>
+          <li class=""><a href="#methods" class="block p-2 rounded hover:text-blue-500">Methods</a></li>
+          <li class=""><a href="#results" class="block p-2 rounded hover:text-blue-500">Results and Discussion</a></li>
+        </ul>
+        <li class="mt-2"><a href="#midpoint" class="block p-2 rounded hover:text-blue-500">Project Midpoint</a></li>
+        <ul class="ml-4">
+          <li class=""><a href="#midpoint-intro" class="block p-2 rounded hover:text-blue-500">Introduction &
+              Background</a></li>
+          <li class=""><a href="#midpoint-definition" class="block p-2 rounded hover:text-blue-500">Problem
+              Definition</a></li>
+          <li class=""><a href="#midpoint-methods" class="block p-2 rounded hover:text-blue-500">Methods</a></li>
+          <li class=""><a href="#midpoint-results" class="block p-2 rounded hover:text-blue-500">Results and
+              Discussion</a></li>
+        </ul>
+        <li class="mt-2"><a href="#final" class="block p-2 rounded hover:text-blue-500">Final Report</a></li>
+        <ul class="ml-4">
+          <li class=""><a href="#final-intro" class="block p-2 rounded hover:text-blue-500">Introduction &
+              Background</a></li>
+          <li class=""><a href="#final-definition" class="block p-2 rounded hover:text-blue-500">Problem Definition</a>
+          </li>
+          <li class=""><a href="#final-methods" class="block p-2 rounded hover:text-blue-500">Methods</a></li>
+          <li class=""><a href="#final-results" class="block p-2 rounded hover:text-blue-500">Results and Discussion</a>
+          </li>
+        </ul>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-10 lg:ml-80">
+      <button id="toggleMenu" class="mb-4 bg-blue-600 text-white p-2 rounded lg:hidden">Toggle Menu</button>
+      <section id="project-proposal">
+        <h1 class="text-3xl font-bold">Project Proposal</h1>
+
+        <section id="intro">
+          <h3 class="mt-3 text-2xl font-bond">Introduction & Background</h3>
+          <p class="mt-4">
+            For our project this semester, we aim to utilize the power of machine learning to take advantage of the
+            sports betting market, which is estimated to be valued at around 150 billion dollars annually in the United
+            States.
+            Using Machine Learning techniques such as Random Forest, Regression, and Nearest Neighbors, we will seek to
+            predict
+            player statistics on a per game basis to find under or overvalued bets. This topic has been extensively
+            explored
+            in previously published literature. For example, Walsh & Joshi explore how tuning a model for calibration
+            rather
+            than accuracy can lead to average gains of around 35%, and they detail how feature engineering can help in
+            improving the profitability of the model (2024). Further, Hubacek and Sir utilize Machine Learning for
+            moneyline
+            bets, which reward the bettor for predicting the correct winner of a game (2019). To accomplish our goals,
+            we can
+            decide to use data from previous seasons, as is in this <a
+              href="https://sports-statistics.com/sports-data/nba-basketball-datasets-csv-files/"><span
+                class="text-blue-400 underline">dataset</span></a>.
+            or more expanded data from previous nba seasons such as in this <a
+              href="https://www.kaggle.com/datasets/drgilermo/nba-players-stats/data?select=Seasons_Stats.csv"><span
+                class="text-blue-400 underline">dataset</span></a>.
+            This has data about players’ shots per game, points per game, assists, rebounds, and more so we can create
+            and predict
+            how players will perform in a certain game, and use this data to predict which bets will hit and not.
+          </p>
+        </section>
+
+        <section id="definition">
+          <h3 class="mt-3 text-2xl font-bond">Problem Definition</h3>
+          <p class="mt-4">
+            Sports betting has become a popular pastime for many sports fans across the country. However, it’s
+            important to highlight several flaws in the system. The house edge significantly advantages betting
+            companies over casual bettors. Additionally, the vast amount of data held by these companies gives
+            them multiple advantages, further disadvantaging casual bettors. These issues make it clear that
+            bettors are often at a disadvantage, leading–more often than not–to frequent financial losses. Our
+            project aims to address this by providing bettors with a competitive edge through accurate predictions
+            of NBA players' stat lines. These statlines will serve as opportunities for bettors to make more
+            informed/educated
+            decisions on player prop bets, with the ultimate goal of improving their chances of success.
+          </p>
+        </section>
+
+        <section id="methods">
+          <h3 class="mt-3 text-2xl font-bond">Methods</h3>
+          <p class="mt-4">
+            <span style="white-space: pre-wrap">
+              Methods:
+              1. Encoding Categorical Features: Encoding features like playing against or home/away
+              2. Standardization: This will be used to fit the data to a normal or gaussian distribution so that our
+              data can be more easily used for later models
+              3. Normalization: Normalize the data to have a unit norm, also so data can be more easily used for later
+              models
+              Models:
+              1. Random Forest Regression: Restrict tree, each tree having a decent guess. Average data from the random
+              trees
+              2. Gradient Boosted Tree: Decision tree with yes or no for props, remake the tree for corrections
+              3. SVM linear regression: Put data points into higher dimension to find line fitting data
+            </span>
+          </p>
+        </section>
+
+        <section id="results">
+          <h3 class="mt-3 text-2xl font-bond">Results and Discussion</h3>
+          <p class="mt-4">
+            <span style="white-space: pre-wrap">
+              Quantitative Metrics and Relative Goals
+              Root Mean Squared Error
+              This allows us to see the average difference between the values predicted by our model vs the true value
+              of the variable.
+              Our goal for this metric is to minimize the RMSE, meaning less difference between our predictions and the
+              real values.
+              Explained Variance
+              This checks the model’s ability to account for the variance in the data, which will be especially
+              important regarding live sports.
+              We are looking to maximize the explained variance of our model, which signifies that we have a strong fit
+              between the predictions and data and much of the variance is explained.
+              F-Beta Score
+              This will be a useful metric when weighing our importance of precision vs recall which we can reflect in
+              our beta value. This will also be useful as we can categorize the data by metrics such as over and under
+              relative to specific props.
+              We look to maximize our F-score to reduce the prevalence of false positives or negatives in the data
+              Expected Results
+              In our work, we aim to generate a model that in consistently identifiable instances, can generate an
+              estimate of a player's performance that is useful relative to the lines set by major sports betting odds
+              makers 
+            </span>
+          </p>
+        </section>
+        <section id="references">
+          <h3 class="mt-3 text-2xl font-bond">References</h3>
+          <p class="mt-4">
+            [1] A. Fayad, “Building My First Machine Learning Model | NBA Prediction Algorithm,” Medium, Nov. 08,
+            2021. https://towardsdatascience.com/building-my-first-machine-learning-model-nba-prediction-algorithm-dee5c5bc4cc1
+          </p>
+          <p class="mt-2"> [2] C. Walsh and A. Joshi, “Machine learning for sports betting: Should model selection be
+            based on accuracy or calibration?,” Machine Learning with Applications, vol. 16, p. 100539, Jun. 2024,
+            doi: https://doi.org/10.1016/j.mlwa.2024.100539. </p>
+          <p class="mt-2"> [3] G. Papageorgiou, Vangelis Sarlis, and Christos Tjortjis, “Evaluating the effectiveness of
+            machine learning models for performance forecasting in basketball: a comparative study,” Knowledge and
+            Information Systems, Mar. 2024, doi: https://doi.org/10.1007/s10115-024-02092-9. </p>
+          <p class="mt-2"> [4] SportsBettingDime, “How Do Bookmakers Generate Sports Odds?,” Sports Betting
+            Dime. https://www.sportsbettingdime.com/guides/betting-101/how-bookmakers-generate-odds/ </p>
+        </section>
+
+      </section>
+
+      <section class="mt-6" id="midpoint">
+
+        <h1 class="text-3xl font-bold">Midterm Checkpoint</h1>
+
+        <p class="m-2">Link to access Gantt Chart: <a
+            href="https://github.com/theflashwin/CS-4641-Group-Project/blob/main/GanttChart.pdf">
+            <span class="text-blue-400">Link</span>
+          </a></p>
+
+        <div>
+          <div class="container mx-auto mt-8">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Name
+                  </th>
+                  <th scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Midterm Contributions
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Ashwin Mudaliar
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Making Visualization, Random Forest Coding
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Keegan Thompson
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Gradient Boosted Coding, Methods
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Terrence Onodipe
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Gradient Boosted Coding, Problem Definition
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Colin Hakes
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Random Forest Coding, Results + Discussion
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <section id="midpoint-intro">
+          <h3 class="mt-3 text-2xl font-bond">Introduction/Background</h3>
+          <p class="mt-4">
+            For our project this semester, we aim to utilize the power of machine learning to take advantage of the
+            sports betting market, which is estimated to be valued at around 150 billion dollars annually in the United
+            States.
+            Using Machine Learning techniques such as Random Forest, Regression, and Nearest Neighbors, we will seek to
+            predict
+            player statistics on a per game basis to find under or overvalued bets. This topic has been extensively
+            explored
+            in previously published literature. For example, Walsh & Joshi explore how tuning a model for calibration
+            rather
+            than accuracy can lead to average gains of around 35%, and they detail how feature engineering can help in
+            improving the profitability of the model (2024). Further, Hubacek and Sir utilize Machine Learning for
+            moneyline
+            bets, which reward the bettor for predicting the correct winner of a game (2019). To accomplish our goals,
+            we
+            will use data from <a href="https://www.basketball-reference.com/"><span class="text-blue-400">Basketball
+                Reference</span></a>, focusing on these
+            specific datasets for five different players in different points in their career:
+            <a href="https://www.basketball-reference.com/players/a/alvarjo01/gamelog/2023"><span
+                class="text-blue-400">Jose Alvarado</span></a>,
+            <a href="https://www.basketball-reference.com/players/a/adebaba01.html"><span class="text-blue-400">Bam
+                Adebayo</span></a>,
+            <a href="https://www.basketball-reference.com/players/y/youngtr01.html"><span class="text-blue-400">Trae
+                Young</span></a>,
+            <a href="https://www.basketball-reference.com/players/l/leonaka01.html"><span class="text-blue-400">Kawhi
+                Leonard</span></a>, and
+            <a href="https://www.basketball-reference.com/players/w/whitede01.html"><span class="text-blue-400">Derrick
+                White</span></a>.
+          </p>
+
+        </section>
+
+        <section id="midpoint-definition">
+          <h3 class="mt-3 text-2xl font-bond">Problem Definition</h3>
+          <p class="mt-4">
+
+            Sports betting has become a popular pastime for many sports fans across the country. However, it’s
+            important to highlight several flaws in the system. The house edge significantly advantages betting
+            companies over casual bettors. Additionally, the vast amount of data held by these companies gives
+            them multiple advantages, further disadvantaging casual bettors. These issues make it clear that
+            bettors are often at a disadvantage, leading–more often than not–to frequent financial losses. Our
+            project aims to address this by providing bettors with a competitive edge through accurate predictions
+            of NBA players' stat lines. These statlines will serve as opportunities for bettors to make more
+            informed/educated
+            decisions on player prop bets, with the ultimate goal of improving their chances of success.
+
+
+          </p>
+
+        </section>
+
+        <section id="midpoint-methods">
+          <h3 class="mt-3 text-2xl font-bond">Methods</h3>
+          <p class="mt-4">
+            <span style="white-space: pre-wrap">
+              1. Random Forest Regression: This restricts individual trees based on our data, and each tree makes a
+              guess as to player's correct amount of points.The final data is the average data from the random trees.
+              Methods Used for Random Forest Regression:
+              1. Encoding Categorical Features: We had to change certain features from strings to ints. We had to encode
+              what teams they played against,
+              whether it was home or away, and their current team as numbers. We used a dictionary to encode the teams
+              from 0-29 and then encoded home and away as 0 or 1.
+              2. Parsing and Cleaning CSV File: We had to parse a csv file. We then read only certain portions of the
+              data, dropping irrelevant data and data that could lead to linearly independence.
+              We also had to make every single piece of data in the csv into an int. We had to change time played into a
+              single integer value, because it wasn't displayed as such and couldn't change into an int without doing
+              so.
+            </span>
+          </p>
+
+        </section>
+
+        <section id="midpoint-results">
+          <h3 class="mt-3 text-2xl font-bond">Results and Discussion</h3>
+
+          <h1 class="mt-2 text-xl">Quantitative Metrics and Relative Goals</h1>
+
+          <ol class="ml-8 list-decimal">
+            <li>R2 Score</li>
+
+            <h1 class="text-lg">Random Forest Regression</h1>
+
+            <ul class="ml-5 list-disc">
+              <li>Trae Young: 0.734</li>
+              <li>Kawhi Leonard: 0.825</li>
+              <li>Bam Adebayo: 0.879</li>
+              <li>Derrick White: 0.727</li>
+              <li>Jose Alvarado: 0.693</li>
+              <li>Average: 0.772</li>
+            </ul>
+
+            <h1 class="text-lg">Gradient Boosted Tree</h1>
+
+            <ul class="ml-5 list-disc">
+              <li>Trae Young: 0.803</li>
+              <li>Kawhi Leonard: 0.805</li>
+              <li>Bam Adebayo: 0.861</li>
+              <li>Derrick White: 0.736</li>
+              <li>Jose Alvarado: 0.730</li>
+              <li>Average: 0.787</li>
+            </ul>
+
+            <p>The close similarity of our R2 values implies am incredibly similar performance regarding these metrics,
+              with neither proving more or less effective in this regard.</p>
+
+            <img class="h-auto max-w-lg mx-auto" src="./images/old/r2_graph.png" alt="bar graph of r2 scores">
+
+            <li>Mean Absolute Error</li>
+
+            <h1 class="text-lg">Random Forest Regression</h1>
+
+            <ul class="ml-5 list-disc">
+              <li>Trae Young: 2.441</li>
+              <li>Kawhi Leonard: 2.338</li>
+              <li>Bam Adebayo: 2.063</li>
+              <li>Derrick White: 2.545</li>
+              <li>Jose Alvarado: 1.935</li>
+              <li>Average: 2.264</li>
+            </ul>
+
+            <h1 class="text-lg">Gradient Boosted Tree</h1>
+
+            <ul class="ml-5 list-disc">
+              <li>Trae Young: 2.407</li>
+              <li>Kawhi Leonard: 2.442</li>
+              <li>Bam Adebayo: 2.034</li>
+              <li>Derrick White: 2.663</li>
+              <li>Jose Alvarado: 2.232</li>
+              <li>Average: 2.356</li>
+            </ul>
+
+            <img class="h-auto max-w-lg mx-auto" src="./images/old/mean_error_graph.png"
+              alt="bar graph of mean absolute error">
+
+            <li>Mean Squared Error</li>
+
+            <h1 class="text-lg">Random Forest Regression</h1>
+
+            <ul class="ml-5 list-disc">
+              <li>Trae Young: 9.965</li>
+              <li>Kawhi Leonard: 9.525</li>
+              <li>Bam Adebayo: 5.752</li>
+              <li>Derrick White: 10.488</li>
+              <li>Jose Alvarado: 6.369</li>
+              <li>Average: 8.420</li>
+            </ul>
+
+            <h1 class="text-lg">Gradient Boosted Tree</h1>
+
+            <ul class="ml-5 list-disc">
+              <li>Trae Young: 7.779</li>
+              <li>Kawhi Leonard: 8.977</li>
+              <li>Bam Adebayo: 7.589</li>
+              <li>Derrick White: 11.341</li>
+              <li>Jose Alvarado: 7.232</li>
+              <li>Average: 8.584</li>
+            </ul>
+
+            <img class="h-auto max-w-lg mx-auto" src="./images/old/mean_squared_graph.png"
+              alt="bar graph of mean absolute error">
+
+          </ol>
+
+          <p>In all three metrics the models performed very similarly. Specifically, the Gradient Boosted Tree showed
+            more
+            error than the Random Forest Regression Model, but also showed a better R2 score. With this we believe going
+            forward we need to both try other models as planned such as SVM linear regression, but it will be vary key
+            to
+            also try to collect more data that could better train these models, which may also show bigger differences
+            in
+            effectiveness between them. This data could involve more opposing player statistics, teammate statistics, or
+            general team statistics.</p>
+
+        </section>
+
+        <section id="midpoint-references">
+          <h3 class="mt-3 text-2xl font-bond">References</h3>
+          <p class="mt-4">
+            [1] A. Fayad, “Building My First Machine Learning Model | NBA Prediction Algorithm,” Medium, Nov. 08,
+            2021. https://towardsdatascience.com/building-my-first-machine-learning-model-nba-prediction-algorithm-dee5c5bc4cc1
+          </p>
+          <p class="mt-2"> [2] C. Walsh and A. Joshi, “Machine learning for sports betting: Should model selection be
+            based on accuracy or calibration?,” Machine Learning with Applications, vol. 16, p. 100539, Jun. 2024,
+            doi: https://doi.org/10.1016/j.mlwa.2024.100539. </p>
+          <p class="mt-2"> [3] G. Papageorgiou, Vangelis Sarlis, and Christos Tjortjis, “Evaluating the effectiveness of
+            machine learning models for performance forecasting in basketball: a comparative study,” Knowledge and
+            Information Systems, Mar. 2024, doi: https://doi.org/10.1007/s10115-024-02092-9. </p>
+          <p class="mt-2"> [4] SportsBettingDime, “How Do Bookmakers Generate Sports Odds?,” Sports Betting
+            Dime. https://www.sportsbettingdime.com/guides/betting-101/how-bookmakers-generate-odds/ </p>
+        </section>
+
+      </section>
+
+      </section>
+      <section class="mt-6" id="final">
+
+        <h1 class="text-3xl font-bold">Final Report</h1>
+
+        <p class="m-2">Link to access Gantt Chart: <a
+            href="https://github.com/theflashwin/CS-4641-Group-Project/blob/main/GanttChart.pdf">
+            <span class="text-blue-400">Link</span>
+          </a></p>
+
+        <div>
+          <div class="container mx-auto mt-8">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Name
+                  </th>
+                  <th scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Final Contributions
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Ashwin Mudaliar
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    /to be added
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Keegan Thompson
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    //to be added
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Terrence Onodipe
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    //to be added
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Colin Hakes
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    //to be added
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <section id="final-intro">
+          <h3 class="mt-3 text-2xl font-bond">Introduction/Background</h3>
+          <p class="mt-4">
+            For our project this semester, we aim to utilize the power of machine learning to take advantage of the
+            sports betting market, which is estimated to be valued at around 150 billion dollars annually in the United
+            States.
+            Using Machine Learning techniques such as Random Forest, Regression, and Nearest Neighbors, we will seek to
+            predict
+            player statistics on a per game basis to find under or overvalued bets. This topic has been extensively
+            explored
+            in previously published literature. For example, Walsh & Joshi explore how tuning a model for calibration
+            rather
+            than accuracy can lead to average gains of around 35%, and they detail how feature engineering can help in
+            improving the profitability of the model (2024). Further, Hubacek and Sir utilize Machine Learning for
+            moneyline
+            bets, which reward the bettor for predicting the correct winner of a game (2019). To accomplish our goals,
+            we
+            will use data from <a href="https://www.basketball-reference.com/"><span class="text-blue-400">Basketball
+                Reference</span></a>, focusing on these
+            specific datasets for five different players in different points in their career:
+            <a href="https://www.basketball-reference.com/players/a/alvarjo01/gamelog/2023"><span
+                class="text-blue-400">Jose Alvarado</span></a>,
+            <a href="https://www.basketball-reference.com/players/a/adebaba01.html"><span class="text-blue-400">Bam
+                Adebayo</span></a>,
+            <a href="https://www.basketball-reference.com/players/y/youngtr01.html"><span class="text-blue-400">Trae
+                Young</span></a>,
+            <a href="https://www.basketball-reference.com/players/l/leonaka01.html"><span class="text-blue-400">Kawhi
+                Leonard</span></a>, and
+            <a href="https://www.basketball-reference.com/players/w/whitede01.html"><span class="text-blue-400">Derrick
+                White</span></a>.
+          </p>
+
+        </section>
+
+        <section id="final-definition">
+          <h3 class="mt-3 text-2xl font-bond">Problem Definition</h3>
+          <p class="mt-4">
+
+            Sports betting has become a popular pastime for many sports fans across the country. However, it’s
+            important to highlight several flaws in the system. The house edge significantly advantages betting
+            companies over casual bettors. Additionally, the vast amount of data held by these companies gives
+            them multiple advantages, further disadvantaging casual bettors. These issues make it clear that
+            bettors are often at a disadvantage, leading–more often than not–to frequent financial losses. Our
+            project aims to address this by providing bettors with a competitive edge through accurate predictions
+            of NBA players' stat lines. These statlines will serve as opportunities for bettors to make more
+            informed/educated
+            decisions on player prop bets, with the ultimate goal of improving their chances of success.
+
+          </p>
+
+        </section>
+
+        <section id="final-methods">
+          <h3 class="mt-3 text-2xl font-bond">Methods</h3>
+          <p class="mt-4">
+            <span style="white-space: pre-wrap">
+              Methods:
+              1. Encoding Categorical Features: We had to change certain features from strings to ints. We had to encode
+              what teams they played against,
+              whether it was home or away, and their current team as numbers. We used a dictionary to encode the teams
+              from 0-29 and then encoded home and away as 0 or 1.
+              2. Parsing the CSV File: We had to parse a csv file. We then read only certain portions of the data,
+              dropping irrelevant data and data that could lead to linearly independence.
+              3. Cleaning the CSV File: We also had to make every single piece of data in the csv into an int. We had to
+              change time played into a single integer value, because it wasn't displayed as such and couldn't change
+              into an int without doing so.
+              Models:
+              Both the random forest regression and the gradient boosted tree are good models for regression in which
+              there might not be a linear interaction between the features and the target data. Our data may not have a
+              linear
+              interaction between opponent, FG%, FP% and so on, so in that case the the decision tree models will
+              produce better results than a normal linear regression model. However, in the case our data can be
+              explained using linearly
+              from the features to the target data, we want to use a Linear Regression Support Vector Machine.
+              1. Random Forest Regression: This restricts individual trees based on our data, and each tree makes a
+              guess as to player's correct amount of points.The final data is the average data from the random trees.
+              2. Gradient Boosted Tree: This creates a decision tree with yes or no for different cut offs for each
+              guess. It then remakes the tree to make corrections on the final guess.
+              3. Linear Regression Support Vector Machine: This puts all of our data points into a higher dimension to
+              find line thats fits the data, which then outputs a reasonable guess for the player prop.
+            </span>
+          </p>
+
+        </section>
+
+        <section id="final-results">
+          <h3 class="mt-3 text-2xl font-bond">Results and Discussion</h3>
+
+          <p class="mt-2 mx-auto">To obtain our data, we ran each of our models 10 times with different training and
+            test data, getting the average of the 10 iterations.</p>
+
+          <h1 class="mt-3 mb-2 text-xl font-bold">Mean Absolute Error</h1>
+
+          <div>
+            <div class="container mx-auto mt-8">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Player Name
+                    </th>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Support Vector Regression
+                    </th>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Random Forest Regression
+                    </th>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Gradient Boosted Tree
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Jose Alvarado
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      1.536
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      1.935
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.271
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Trae Young
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      1.402
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.441
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.431
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Derrick White
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      1.938
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.550
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.588
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Bam Adebayo
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      1.658
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.063
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.057
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Kawhi Leonard
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.683
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.334
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.441
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Average
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      1.843
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.264
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      2.358
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <img class="h-auto max-w-lg mx-auto" src="./images/final/mean-absolute-error.png"
+            alt="bar graph of mean absolute error">
+
+          <p class="mt-3 mx-auto"> First looking at the Mean Absolute Error for each player for each of our three 
+            models, we can clearly see for all players except notably Kawhi Leonard, Support Vector Regression (SVR) 
+            had the lowest Mean Absolute Error from the predictions to the ground truth. Both Random Forest (RF) and 
+            Gradient Boosted (GBT) had largely the same Mean Absolute Error, with RF slightly beating GBT out in the 
+            average due to its sizably better performance on Jose Alvarado. This is likely because Jose Alvarado is a 
+            bench player with a moderately high performance ceiling, that can have a vary volatile range of performances 
+            in quick succession between games, indicating that our Random Forrest model can better deal with more random 
+            data in our case. To explain why Kawhi Leonard has worse performance on SVR, this is likely due to the lack 
+            of training data available for him, he is often injured and rarely plays in the regular season. So, when presented 
+            with a relative lack of training data, GBT or RF showed far more consistent accuracy in predicting player performance.
+          </p>
+
+          <h1 class="mt-3 mb-2 text-xl font-bold">Mean Squared Error</h1>
+
+          <div>
+            <div class="container mx-auto mt-8">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Player Name
+                    </th>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Support Vector Regression
+                    </th>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Random Forest Regression
+                    </th>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Gradient Boosted Tree
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Jose Alvarado
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      4.110
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      6.369
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      7.943
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Trae Young
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      3.081
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      9.965
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      8.548
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Derrick White
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      5.202
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      10.200
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      10.334
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Bam Adebayo
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      4.231
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      5.752
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      8.457
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Kawhi Leonard
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      10.553
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      9.660
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      8.315
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Average
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      5.435
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      8.389
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      8.719
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <img class="h-auto max-w-lg mx-auto" src="./images/final/mean-squared-error.png"
+            alt="bar graph of mean absolute error">
+
+          <p class="mt-3 mx-auto"> We see similar results from Mean Squared Error, with SVR performing better across all
+            players except for Kawhi Leonard and RF slightly edging out GBT for Jose Alvardo. However, interestingly, we
+            see a
+            large difference in performance between
+            GBT and RF for Bam Adebayo, with RF performing better. This indicates that when RF is wrong, it is wrong by
+            a smaller margin that GBT, which is likely because
+            Bam Adebayo is largely consistent in terms of points scored, but the amount of rebounds and assists he gets
+            per game varies largely, indicating RF is better at handling
+            this variance in our data. </p>
+
+          <h1 class="mt-3 mb-2 text-xl font-bold">R2 Score</h1>
+
+          <div>
+            <div class="container mx-auto mt-8">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Player Name
+                    </th>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Support Vector Regression
+                    </th>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Random Forest Regression
+                    </th>
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Gradient Boosted Tree
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Jose Alvarado
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.894
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.693
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.621
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Trae Young
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.929
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.734
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.805
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Derrick White
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.852
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.731
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.760
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Bam Adebayo
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.889
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.879
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.858
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Kawhi Leonard
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.832
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.822
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.815
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Average
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.879
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.772
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      0.772
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <img class="h-auto max-w-lg mx-auto" src="./images/final/r2-score.png" alt="bar graph of mean absolute error">
+
+          <p class="mt-3 mx-auto"> We again can derive similar conclusions from above. Interestingly, despite
+            SVR's worse performance for Kawhi Leonard from above, it has the highest r2 score. From the data points
+            presented,
+            we can conclude SVR was the best model for our use case performing well regardless of the variability in
+            players'
+            stats and preserving its high r2 scores regardless of limited training data. </p>
+
+
+        </section>
+
+        
+        <h1 class="mt-3 mb-2 text-xl font-bold">General Results</h1>
+        Looking at the results of our 3 models, we can see that the Support Vector Machine generally outperformed 
+        both the Random Forest Regressor and Gradient Boosted Tree based on our R2, mean squared error , and mean
+        absolute error. We predict the RFR and GBT were more sensitive to the noise of the data we input, especially 
+        considering the inherent randomness involved in athlete performance across games. This is also the reason that 
+        RFR was slightly more effective than the GBT, as it was slightly better able to handle outlier performances 
+        by players relative to their recent tendencies. ​
+
+        <h2 class="mt-3 mb-2 text-xl font-bold">Going Forward</h1>
+
+        In looking to continue to improve our model, our general ideas revolve around gathering and training on more and 
+        different types of data. Primarily, we would like to provide more statistics regarding teammate and opposing team 
+        recent performance, as these statistics can heavily impact a given players stats on a given night. With this, we 
+        would also like to add a feature for providing who would is injured on a night, so that the model can adjust its 
+        prediction based on their absence. We also would like to look further into our player archetype feature, which would 
+        allow the model to make predictions on players of similar playstyles without needing access to all of their past 
+        performances. With these changes, we believe that we would also be able to allow the model to begin predicting features 
+        other than points scored, such as assists, rebounds, and winning or losing for a team. ​
+
+        In addition, we aim to enhance our algorithms to make them suitable for a potential consumer market. Our goal is to offer 
+        users predicted stat lines and provide bettors with insights into advisable bets, as well as perform risk analysis for each 
+        potential wager. To achieve this, we plan to implement error analysis by comparing the discrepancies between our model’s 
+        predictions and the betting lines set by companies. We can us bayesian methods provide a probabilistic framework for predictions, 
+        allowing us to estimate the confidence intervals for our predictions, therefore allowing us to quanity the uncertainty
+        in our predictions and provde a risk assessment of betting according to our suggestions.
+
+
+
+        <section id="final-references">
+          <h3 class="mt-3 text-2xl font-bond">References</h3>
+          <p class="mt-4">
+            [1] A. Fayad, “Building My First Machine Learning Model | NBA Prediction Algorithm,” Medium, Nov. 08,
+            2021. https://towardsdatascience.com/building-my-first-machine-learning-model-nba-prediction-algorithm-dee5c5bc4cc1
+          </p>
+          <p class="mt-2"> [2] C. Walsh and A. Joshi, “Machine learning for sports betting: Should model selection be
+            based on accuracy or calibration?,” Machine Learning with Applications, vol. 16, p. 100539, Jun. 2024,
+            doi: https://doi.org/10.1016/j.mlwa.2024.100539. </p>
+          <p class="mt-2"> [3] G. Papageorgiou, Vangelis Sarlis, and Christos Tjortjis, “Evaluating the effectiveness of
+            machine learning models for performance forecasting in basketball: a comparative study,” Knowledge and
+            Information Systems, Mar. 2024, doi: https://doi.org/10.1007/s10115-024-02092-9. </p>
+          <p class="mt-2"> [4] SportsBettingDime, “How Do Bookmakers Generate Sports Odds?,” Sports Betting
+            Dime. https://www.sportsbettingdime.com/guides/betting-101/how-bookmakers-generate-odds/ </p>
+        </section>
+
+      </section>
+
+      </section>
+
+
+    </div>
+  </div>
+
+</body>
+
+</html>
